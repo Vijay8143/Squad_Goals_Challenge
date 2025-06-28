@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Challengers Bangalore | Official Squad</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+  <img src="Screenshot 2025-06-28 130603.png" 
+       alt="RCB Logo" 
+       class="logo"
+       onerror="this.onerror=null;this.src='fallback-logo.png';this.alt='RCB Logo Fallback'"/>
+  <div class="logo-badge">RCB</div>
+</div>
+    <h1>Royal Challengers Bangalore</h1>
+    <p class="slogan">Play Bold – Ee Sala Cup Namde</p>
+    
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" placeholder="Search players by name, role or country...">
+    </div>
+    
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Players</button>
+      <button class="filter-btn" data-filter="batsman">Batsmen</button>
+      <button class="filter-btn" data-filter="bowler">Bowlers</button>
+      <button class="filter-btn" data-filter="all-rounder">All-Rounders</button>
+      <button class="filter-btn" data-filter="wicket-keeper">Wicket Keepers</button>
+    </div>
+  </header>
+
+  <div class="team-stats">
+    <h2 class="section-title">Team Statistics</h2>
+    <div class="stats-cards">
+      <div class="team-stat-card">
+        <div class="team-stat-icon"><i class="fas fa-trophy"></i></div>
+        <div class="team-stat-value">1</div>
+        <div class="team-stat-label">IPL Titles</div>
+      </div>
+      <div class="team-stat-card">
+        <div class="team-stat-icon"><i class="fas fa-medal"></i></div>
+        <div class="team-stat-value">47.3%</div>
+        <div class="team-stat-label">Win Percentage</div>
+      </div>
+      <div class="team-stat-card">
+        <div class="team-stat-icon"><i class="fas fa-bolt"></i></div>
+        <div class="team-stat-value">148.9</div>
+        <div class="team-stat-label">Highest Strike Rate</div>
+      </div>
+      <div class="team-stat-card">
+        <div class="team-stat-icon"><i class="fas fa-users"></i></div>
+        <div class="team-stat-value">25</div>
+        <div class="team-stat-label">Players in Squad</div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="players-grid" id="playersGrid">
+      <!-- Player cards will be inserted here by JavaScript -->
+    </div>
+  </main>
+
+  <div class="modal" id="playerModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeBtn">&times;</button>
+      <div class="modal-header">
+        <img src="" alt="Player Image" class="modal-image" id="modalPlayerImage">
+        <div class="modal-title">
+          <h2 class="modal-name" id="playerName"></h2>
+          <div class="modal-subtitle">
+            <span id="playerCountry"></span>
+            <span class="modal-jersey" id="jersey"></span>
+          </div>
+          <div class="badges" id="modalBadges"></div>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-title">Matches</div>
+          <div class="stat-card-value" id="matches"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Runs</div>
+          <div class="stat-card-value" id="totalRuns"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Wickets</div>
+          <div class="stat-card-value" id="totalWickets"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-title">Catches</div>
+          <div class="stat-card-value" id="totalCatches"></div>
+        </div>
+      </div>
+      
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Strike Rate</span>
+          <span id="strikeRate"></span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="strikeBar"></div>
+        </div>
+      </div>
+      
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Batting Average</span>
+          <span id="battingAvg"></span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="battingAvgBar"></div>
+        </div>
+      </div>
+      
+      <div class="performance-highlights">
+        <h3 class="highlight-title"><i class="fas fa-award"></i>Performance Highlights</h3>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-fire"></i></div>
+          <div class="highlight-content">
+            <div class="highlight-label">Best Batting</div>
+            <div class="highlight-value" id="bestBatting"></div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-bowling-ball"></i></div>
+          <div class="highlight-content">
+            <div class="highlight-label">Best Bowling</div>
+            <div class="highlight-value" id="bestBowling"></div>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-star"></i></div>
+          <div class="highlight-content">
+            <div class="highlight-label">Player of Matches</div>
+            <div class="highlight-value" id="playerOfMatches"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fab" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
